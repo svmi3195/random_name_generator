@@ -8,9 +8,9 @@
 <meta name="description" content="random name generator">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="stylesheet" type="text/css" href="rand_name_style.css"/>
+<link rel="stylesheet" type="text/css" href="style.css"/>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
 
 
 <title>Random Name Generator</title>
@@ -18,12 +18,15 @@
 </head>
 
 <body>
+<form>
+ Name length (between 2 and 10):
+ <input type="number" class="length" min="2" max="10">
+ <button type="button">get name</button>
+</form>
+<div class="result"></div>
 
-<div>random name generator</div>
-
-
-
-<script src="rand_name_script.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="app.js"></script>
 </body>
 
 <html>
