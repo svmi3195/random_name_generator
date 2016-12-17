@@ -4,15 +4,16 @@ function go(){
 
   $('button').on('click', function(){
     var length = $('.length').val();
-    generate(length);
+    var style = $('.style').val();
+    generate(length, style);
   })
 }//end of go function
 
-function generate(length){
+function generate(length, style){
   
   var vowels = createVowels();
   var consonants = createConsonants();
-  var pattern = makePattern(length);
+  var pattern = makePattern(length, style);
   var name = [];
 
   for(var i = 0; i < pattern.length; i++){
@@ -27,12 +28,13 @@ function generate(length){
 }//end of generate function
 
 //create pattern of vowels(0) and consonants(1) for future name
-function makePattern(length){
+function makePattern(length, style){
 
   var pattern = [];
-
-  for(var i = 0; i < length; i++){
-    
+  
+  //general style - random allowing two vowels/consonants in a row
+  if(style == "gen"){
+  for(var i = 0; i < length; i++){    
     if(pattern.length > 1 && pattern[i-1] == 0 && pattern[i-2] == 0){
       pattern[i] = 1;
     }else if(pattern.length > 1 && pattern[i-1] == 1 && pattern[i-2] == 1){
@@ -41,6 +43,19 @@ function makePattern(length){
       pattern[i] = Math.round(Math.random());
     }    
   }
+}
+//simplistic style - random, but no vowels/consonants in a row
+else if(style == "simp"){
+  pattern[0] = Math.round(Math.random());
+  for(var i = 1; i < length; i++){    
+    if( pattern[i-1] == 0){
+      pattern[i] = 1;
+    }else{
+      pattern[i] = 0;
+    }    
+  }
+}
+
   return pattern;
 }//end of makePattern
 
