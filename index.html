@@ -8,6 +8,7 @@
 <meta name="description" content="random name generator">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.3/foundation.min.css" />
 <link rel="stylesheet" type="text/css" href="style.css"/>
 
 
@@ -16,16 +17,25 @@
 </head>
 
 <body>
-<form>
- Name length (between 2 and 10):
- <input type="number" class="length" min="2" max="10" value="5">
- Style:
-  <select class="style">
-  <option value="gen">Generic</option>
-  <option value="simp">Simplistic</option>
-</select> 
- <button type="button">get name</button>
-</form>
+
+<div class="row settings">
+  <div class="column small-12 medium-6">
+    Length: <input type="number" class="length" min="2" max="10" value="5">
+  </div>
+
+  <div class="column small-12 medium-6">
+    Style:
+    <select class="style">
+      <option value="gen">General</option>
+      <option value="simp">Simplistic</option>
+      <option value="soft">Soft</option>
+      <option value="harsh">Harsh</option>
+    </select>
+  </div>
+ 
+</div>
+<div class="genBtn"><button type="button">Generate</button></div>
+
 <div class="result"></div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

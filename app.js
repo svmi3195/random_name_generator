@@ -9,10 +9,42 @@ function go(){
   })
 }//end of go function
 
+//numbers in arrays - generic frequency, soft, harsh
+var freqs = {
+    a: [3],
+    e: [4],
+    i: [2],
+    o: [3],
+    u: [1],
+    b: [1],
+    c: [2],
+    d: [3],
+    f: [1],
+    g: [1],
+    h: [4],
+    j: [1],
+    k: [1],
+    l: [2],
+    m: [2],
+    n: [5],
+    p: [1],
+    q: [1],
+    r: [4],
+    s: [4],
+    t: [6],
+    v: [1],
+    x: [1],
+    z: [1],
+    w: [1],
+    y: [1]
+};
+
 function generate(length, style){
+  if(style === 'gen' || style === 'simp'){
+    var vowels = createVowels(0);
+    var consonants = createConsonants(0);
+  }  
   
-  var vowels = createVowels();
-  var consonants = createConsonants();
   var pattern = makePattern(length, style);
   var name = [];
 
@@ -68,36 +100,39 @@ function freqArray(letter, frequency){
   return arr;  
 }//end of freqArray
 
-function createVowels(){
-  var vowels = [].concat(freqArray("a", 3))
-                  .concat(freqArray("e", 4))
-                  .concat(freqArray("i", 2))
-                  .concat(freqArray("o", 3))
-                  .concat(freqArray("u", 1));
+
+
+//REWRITE LATER WITH FOREACH LOOP
+function createVowels(styleNr){
+  var vowels = [].concat(freqArray("a", freqs.a[styleNr]))
+                  .concat(freqArray("e", freqs.e[styleNr]))
+                  .concat(freqArray("i", freqs.i[styleNr]))
+                  .concat(freqArray("o", freqs.o[styleNr]))
+                  .concat(freqArray("u", freqs.u[styleNr]));
   return vowels;
 }
 
-function createConsonants(){
-  var consonants = [].concat(freqArray("b", 1))
-                  .concat(freqArray("c", 2))
-                  .concat(freqArray("d", 3))
-                  .concat(freqArray("f", 1))
-                  .concat(freqArray("g", 1))
-                  .concat(freqArray("h", 4))
-                  .concat(freqArray("j", 1))
-                  .concat(freqArray("k", 1))
-                  .concat(freqArray("l", 2))
-                  .concat(freqArray("m", 2))
-                  .concat(freqArray("n", 5))
-                  .concat(freqArray("p", 1))
-                  .concat(freqArray("q", 1))
-                  .concat(freqArray("r", 4))
-                  .concat(freqArray("s", 4))
-                  .concat(freqArray("t", 6))
-                  .concat(freqArray("v", 1))
-                  .concat(freqArray("x", 1))
-                  .concat(freqArray("z", 1))
-                  .concat(freqArray("w", 1))
-                  .concat(freqArray("y", 1))
+function createConsonants(styleNr){
+  var consonants = [].concat(freqArray("b", freqs.b[styleNr]))
+                  .concat(freqArray("c", freqs.c[styleNr]))
+                  .concat(freqArray("d", freqs.d[styleNr]))
+                  .concat(freqArray("f", freqs.f[styleNr]))
+                  .concat(freqArray("g", freqs.g[styleNr]))
+                  .concat(freqArray("h", freqs.h[styleNr]))
+                  .concat(freqArray("j", freqs.j[styleNr]))
+                  .concat(freqArray("k", freqs.k[styleNr]))
+                  .concat(freqArray("l", freqs.l[styleNr]))
+                  .concat(freqArray("m", freqs.m[styleNr]))
+                  .concat(freqArray("n", freqs.n[styleNr]))
+                  .concat(freqArray("p", freqs.p[styleNr]))
+                  .concat(freqArray("q", freqs.q[styleNr]))
+                  .concat(freqArray("r", freqs.r[styleNr]))
+                  .concat(freqArray("s", freqs.s[styleNr]))
+                  .concat(freqArray("t", freqs.t[styleNr]))
+                  .concat(freqArray("v", freqs.v[styleNr]))
+                  .concat(freqArray("x", freqs.x[styleNr]))
+                  .concat(freqArray("z", freqs.z[styleNr]))
+                  .concat(freqArray("w", freqs.w[styleNr]))
+                  .concat(freqArray("y", freqs.y[styleNr]))
   return consonants;
 }
