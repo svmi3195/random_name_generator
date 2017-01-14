@@ -26,14 +26,12 @@ button{
     border: 1px solid yellow;
     border-radius: 5px;
     color: yellow;
+    font-size: large;
 }
 
 .result{
-    max-width: 200px;
-    min-height: 200px;
-    background: yellow;
-    margin: 20px auto 20px auto;
+    color:yellow;
     text-align: center;
     padding: 10px;
-    font-size: large;
+    font-size: xx-large;
 }
