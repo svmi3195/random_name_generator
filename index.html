@@ -18,26 +18,152 @@
 
 <body>
 
-<div class="row settings">
-  <div class="column small-12 medium-6">
-    Length: <input type="number" class="length" min="2" max="10" value="5">
+  <div class="centered">
+    <a href="https://github.com/svmi3195/random_name_generator">Readme/Source</a></div>
+<div class="row expanded settings">
+
+  <div class="column small-12 medium-4 large-2">
+    <div class="input-group">
+      <span class="input-group-label">Length</span>
+      <input class="input-group-field length" type="number" min="2" max="10" value="5">
+  </div>
   </div>
 
-  <div class="column small-12 medium-6">
-    Style:
-    <select class="style">
-      <option value="gen">General</option>
-      <option value="simp">Simplistic</option>
-      <option value="soft">Soft</option>
-      <option value="harsh">Harsh</option>
-      <option value="snake">Snake</option>
+  <div class="column small-12 medium-4 large-2">
+    <div class="input-group">
+      <span class="input-group-label">Style</span>
+      <select class="input-group-field style">
+        <option value="gen">General</option>
+        <option value="simp">Simplistic</option>
+        <option value="soft">Soft</option>
+        <option value="harsh">Harsh</option>
+        <option value="snake">Snake</option>
     </select>
   </div>
- 
-</div>
-<div class="genBtn"><button type="button">Generate</button></div>
+  </div>
 
-<div class="result">_ _ _ _ _</div>
+  <div class="column small-12 medium-4 large-2">
+    <div class="input-group">
+      <span class="input-group-label">Starts</span>
+      <select class="input-group-field starts">
+        <option value="rnd">Random</option>
+        <option value="a">A</option>
+        <option value="b">B</option>
+        <option value="c">C</option>
+        <option value="d">D</option>
+        <option value="e">E</option>
+        <option value="f">F</option>
+        <option value="g">G</option>
+        <option value="h">H</option>
+        <option value="i">I</option>
+        <option value="j">J</option>
+        <option value="k">K</option>
+        <option value="l">L</option>
+        <option value="m">M</option>
+        <option value="n">N</option>
+        <option value="o">O</option>
+        <option value="p">P</option>
+        <option value="q">Q</option>
+        <option value="r">R</option>
+        <option value="s">S</option>
+        <option value="t">T</option>
+        <option value="u">U</option>
+        <option value="v">V</option>
+        <option value="w">W</option>
+        <option value="x">X</option>
+        <option value="y">Y</option>
+        <option value="z">Z</option>
+    </select>
+  </div>
+  </div>
+
+  <div class="column small-12 medium-4 large-2">
+    <div class="input-group">
+      <span class="input-group-label">Ends</span>
+      <select class="input-group-field ends">
+        <option value="rnd">Random</option>
+        <option value="a">A</option>
+        <option value="b">B</option>
+        <option value="c">C</option>
+        <option value="d">D</option>
+        <option value="e">E</option>
+        <option value="f">F</option>
+        <option value="g">G</option>
+        <option value="h">H</option>
+        <option value="i">I</option>
+        <option value="j">J</option>
+        <option value="k">K</option>
+        <option value="l">L</option>
+        <option value="m">M</option>
+        <option value="n">N</option>
+        <option value="o">O</option>
+        <option value="p">P</option>
+        <option value="q">Q</option>
+        <option value="r">R</option>
+        <option value="s">S</option>
+        <option value="t">T</option>
+        <option value="u">U</option>
+        <option value="v">V</option>
+        <option value="w">W</option>
+        <option value="x">X</option>
+        <option value="y">Y</option>
+        <option value="z">Z</option>
+    </select>
+  </div>
+  </div>
+
+  <div class="column small-12 medium-4 large-2">
+    <div class="input-group">
+      <span class="input-group-label">Favourite</span>
+      <select class="input-group-field fav">
+        <option value="none">None</option>
+        <option value="a">A</option>
+        <option value="b">B</option>
+        <option value="c">C</option>
+        <option value="d">D</option>
+        <option value="e">E</option>
+        <option value="f">F</option>
+        <option value="g">G</option>
+        <option value="h">H</option>
+        <option value="i">I</option>
+        <option value="j">J</option>
+        <option value="k">K</option>
+        <option value="l">L</option>
+        <option value="m">M</option>
+        <option value="n">N</option>
+        <option value="o">O</option>
+        <option value="p">P</option>
+        <option value="q">Q</option>
+        <option value="r">R</option>
+        <option value="s">S</option>
+        <option value="t">T</option>
+        <option value="u">U</option>
+        <option value="v">V</option>
+        <option value="w">W</option>
+        <option value="x">X</option>
+        <option value="y">Y</option>
+        <option value="z">Z</option>
+    </select>
+  </div>
+  </div>
+
+  <div class="column small-12 medium-4 large-2">
+    <div class="input-group">
+      <span class="input-group-label">Quantity</span>
+      <input class="input-group-field quantity" type="number" min="1" max="10" value="1">
+  </div>
+  </div>
+    
+
+
+</div>
+<div class="centered"><button type="button" class="genBtn">Generate</button></div>
+
+<div class="result centered">_ _ _ _ _</div>
+
+
+
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="app.js"></script>

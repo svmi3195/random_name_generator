@@ -2,10 +2,40 @@ $( document ).ready(go);
 
 function go(){
 
+  $(".input-group-field").on("change", function(){
+    var length = $('.length').val();
+    var style = $('.style').val();
+    var starts = $('.starts').val();
+    var ends = $('.ends').val();
+    if(style == "simp"){
+      if(length % 2 == 0 && freqsVowels.hasOwnProperty(starts) && freqsVowels.hasOwnProperty(ends)){
+        $('.ends').val("rnd");
+      }else if(length % 2 == 0 && freqsCons.hasOwnProperty(starts) && freqsCons.hasOwnProperty(ends)){
+        $('.ends').val("rnd");
+      }else if(length % 2 != 0 && freqsVowels.hasOwnProperty(starts) && freqsCons.hasOwnProperty(ends)){
+        $('.ends').val("rnd");
+      }else if(length % 2 != 0 && freqsCons.hasOwnProperty(starts) && freqsVowels.hasOwnProperty(ends)){
+        $('.ends').val("rnd");
+      }
+    }
+  })
+
   $('button').on('click', function(){
     var length = $('.length').val();
     var style = $('.style').val();
-    generate(length, style);
+    var starts = $('.starts').val();
+    var ends = $('.ends').val();
+    var fav = $('.fav').val();
+    var quantity = $('.quantity').val();
+
+
+    var output = "";
+
+    for(var i = 1; i <= quantity; i++){
+      output += generate(length, style, starts, ends, fav) + "<br>";
+    }
+
+    $('.result').html(output);
   })
 }//end of go function
 
@@ -53,7 +83,7 @@ var clustersEnd = ['st', 'sk', 'sp', 'nd', 'nt', 'nk', 'mp', 'rd', 'ld', 'lp', '
   
 
 
-function generate(length, style){
+function generate(length, style, starts, ends, fav){
   var vowels;
   var consonants;
   if(style === 'soft'){
@@ -68,10 +98,89 @@ function generate(length, style){
   }else{
     vowels = createVowels(0);
     consonants = createConsonants(0);
-  } 
+  }
+
+  if(fav != "none" && freqsVowels.hasOwnProperty(fav)){
+    for(var i = 0; i < 50; i++){
+      vowels.push(fav);
+    }
+  }else if(fav != "none" && freqsCons.hasOwnProperty(fav)){
+    for(var i = 0; i < 50; i++){
+      consonants.push(fav);
+    }
+  }
+
   
   var pattern = makePattern(length, style);
   var name = [];
+
+if(ends == "rnd"){
+      if(starts != "rnd" && freqsVowels.hasOwnProperty(starts)){
+          while(pattern[0] != 0){
+            pattern = makePattern(length, style);
+          }
+          name.push(starts);
+          pattern.shift();
+      }
+
+      if(starts != "rnd" && freqsCons.hasOwnProperty(starts)){
+          while(pattern[0] != 1){
+            pattern = makePattern(length, style);
+          }
+          name.push(starts);
+          pattern.shift();
+      }
+}
+
+if(starts == "rnd"){
+  if(ends != "rnd" && freqsVowels.hasOwnProperty(ends)){
+      while(pattern[0] != 0){
+        pattern = makePattern(length, style);
+      }
+      pattern.pop();
+  }
+
+  if(ends != "rnd" && freqsCons.hasOwnProperty(ends)){
+      while(pattern[0] != 1){
+        pattern = makePattern(length, style);
+      }
+      pattern.pop();
+  }
+}
+
+if(starts != "rnd" && ends != "rnd"){
+  if(freqsVowels.hasOwnProperty(starts) && freqsVowels.hasOwnProperty(ends)){
+    while(pattern[0] != 0 && pattern[length-1] != 0){
+        pattern = makePattern(length, style);
+      }
+      name.push(starts);
+      pattern.shift();
+      pattern.pop();
+  }else if(freqsCons.hasOwnProperty(starts) && freqsCons.hasOwnProperty(ends)){
+    while(pattern[0] != 1 && pattern[length-1] != 1){
+        pattern = makePattern(length, style);
+      }
+      name.push(starts);
+      pattern.shift();
+      pattern.pop();
+  }else if(freqsVowels.hasOwnProperty(starts) && freqsCons.hasOwnProperty(ends)){
+    while(pattern[0] != 0 && pattern[length-1] != 1){
+        pattern = makePattern(length, style);
+      }
+      name.push(starts);
+      pattern.shift();
+      pattern.pop();
+  }else if(freqsCons.hasOwnProperty(starts) && freqsVowels.hasOwnProperty(ends)){
+    while(pattern[0] != 1 && pattern[length-1] != 0){
+        pattern = makePattern(length, style);
+      }
+      name.push(starts);
+      pattern.shift();
+      pattern.pop();
+  }
+}
+
+
 
   if(style === 'snake'){
     for(var i = 0; i < pattern.length; i++){      
@@ -115,10 +224,13 @@ function generate(length, style){
     }
   }
 
+  if(ends != "rnd"){
+    name.push(ends);
+  }
   
   name[0] = name[0].charAt(0).toUpperCase() + name[0].slice(1);
   
-  $('.result').text(name.join(""));
+  return name.join("");
 }//end of generate function
 
 //create pattern of vowels(0) and consonants(1) for future name
