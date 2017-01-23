@@ -8,6 +8,10 @@
 <meta name="description" content="random name generator">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<link href="https://fonts.googleapis.com/css?family=Overlock" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css?family=Droid+Serif" rel="stylesheet"> 
+
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.3/foundation.min.css" />
 <link rel="stylesheet" type="text/css" href="style.css"/>
 
@@ -18,8 +22,27 @@
 
 <body>
 
-  <div class="centered">
-    <a href="https://github.com/svmi3195/random_name_generator">Readme/Source</a></div>
+  <!--
+    <svg width="50" height="30">
+      <polygon points="0,30 0,0 50,15" style="fill:#028E9B;stroke:#ffc61a;stroke-width:1" />
+      <text fill="#ffc61a" font-size="11" font-family="Verdana" x="3" y="18">more</text>
+    </svg>
+   -->
+
+  <h1>Random name generator <i class="fa fa-caret-down" aria-hidden="true"></i>
+</h1>
+
+<div class="about">
+  <p>This is a little program which generates random name based on letters frequency. It generates completely random names, not based on real names.</p>
+  <p>A few names styles are available in the program. Generic is most random, plus it allowes two vowels or consonants go one after another in a row, that is clusters and diphthongs are possible (but random). Simplistic style will always have a vowel following a consonant and vice versa, disallowing clusters. Soft style has generally more vowels and more l and n. Harsh style has more consonants and more r's. Snake style is for fun, it has doubled vowels and lots of s and h.</p>
+  <p>Favourite option makes possibility for encountering certain letter dramatically higher.</p>
+  <p>Quantity option lets to generate many names at once.</p>
+  <p>Readme and source code can be found <a href="https://github.com/svmi3195/random_name_generator">here</a>.</p>
+  
+  </div>
+
+</div>
+  
 <div class="row expanded settings">
 
   <div class="column small-12 medium-4 large-2">
@@ -164,7 +187,7 @@
 
 
 
-
+<script src="https://use.fontawesome.com/d3d3d81daa.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="app.js"></script>
 </body>

@@ -2,6 +2,19 @@ $( document ).ready(go);
 
 function go(){
 
+  $(".fa").on("click", function(){
+    if($(".fa").hasClass("fa-caret-down")){
+      $('.about').slideDown();      
+      $('.fa').removeClass("fa-caret-down");
+      $('.fa').addClass("fa-caret-up"); 
+    }else{
+      $('.about').slideUp();
+      $('.fa').removeClass("fa-caret-up");      
+      $('.fa').addClass("fa-caret-down"); 
+    }         
+  })
+
+  
   $(".input-group-field").on("change", function(){
     var length = $('.length').val();
     var style = $('.style').val();

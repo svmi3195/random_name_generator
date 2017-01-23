@@ -1,5 +1,16 @@
 ﻿body{
     background-color: #015C65;
+    font-family: 'Cabin', sans-serif;
+}
+
+h1{
+    color: #ffc61a;
+    margin-left: 20px;
+    font-family: 'Overlock', cursive;
+}
+
+svg{
+    display: inline;
 }
 
 .settings{
@@ -15,6 +26,7 @@
     border-radius: 5px;
     color: #ffd966;
     font-size: x-large;
+    font-family: 'Cabin', sans-serif;
 }
 
 .centered{
@@ -25,6 +37,7 @@
     color:#ffc61a;
     padding: 10px;
     font-size: xx-large;
+    font-family: 'Droid Serif', serif;
 }
 
 .row{
@@ -49,6 +62,15 @@ a:hover{
     background-color: #b3e6ff;
 }
 
+.about{
+    display: none;
+    margin-left: 20px;
+    color: #b3e6ff;
+}
+
+.fa:hover{
+    cursor: pointer;
+}
 
 /*
 .input-group{
