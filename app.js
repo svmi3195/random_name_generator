@@ -55,31 +55,31 @@ function go(){
 //numbers in arrays - generic frequency, soft, harsh, snake
 var freqsVowels = {
     a: [3,3,3,2],
-    e: [4,4,4,6],
-    i: [2,2,2,1],
-    o: [3,3,3,1],
-    u: [1,1,1,2]
+    e: [4,6,1,6],
+    i: [2,1,2,1],
+    o: [3,3,1,1],
+    u: [1,1,6,2]
 };
 
 //numbers in arrays - generic frequency, soft, harsh, snake
 var freqsCons = {
     b: [1,1,1,1],
-    c: [2,1,2,1],
-    d: [3,3,3,1],
+    c: [2,1,1,1],
+    d: [2,2,8,1],
     f: [1,1,1,4],
-    g: [1,2,1,1],
+    g: [1,2,6,1],
     h: [4,1,4,8],
     j: [1,1,1,1],
-    k: [1,1,1,1],
+    k: [1,2,1,1],
     l: [2,10,1,3],
     m: [2,2,2,1],
-    n: [5,8,5,1],
+    n: [5,8,1,1],
     p: [1,1,1,1],
     q: [1,1,1,1],
     r: [4,1,6,1],
     s: [4,2,4,8],
     t: [6,2,6,2],
-    v: [1,1,1,1],
+    v: [1,1,6,1],
     x: [1,1,3,1],
     z: [1,1,3,3],
     w: [1,3,1,1],
@@ -209,12 +209,14 @@ if(starts != "rnd" && ends != "rnd"){
     }
   }else if(style === 'harsh'){
     for(var i = 0; i < pattern.length; i++){
-      if(pattern[i] === 1 && name[i-1] === 't'){
+      if(i === 0 && pattern[i] == 1 && pattern[i+1] == 1){
+        name.push(clustersStart[Math.floor(Math.random() * clustersStart.length)]);
+        i++;
+      }else if(i === pattern.length - 2 && pattern[i] == 1 && pattern[i+1] == 1){
+        name.push(clustersEnd[Math.floor(Math.random() * clustersEnd.length)]);
+        i++;
+      }else if(pattern[i] === 1 && name[i-1] === 't'){
         name.push('h');
-      }else if(pattern[i] === 0 && pattern[i-1] === 0){
-        name.push('i');
-      }else if(pattern[i] === 1 && pattern[i-1] === 1){
-        name.push('r');
       }else if(pattern[i] == 0){
         name.push(vowels[Math.floor(Math.random() * vowels.length)]);
       }else{
@@ -270,6 +272,19 @@ else if(style == "soft"){
       pattern[i] = 1;
     }else if(pattern[i-1] == 1){
       pattern[i] = 0;
+    }else{
+      pattern[i] = Math.round(Math.random());
+    }    
+  }
+}
+
+//harsh style allows no dipthongs
+else if(style == "harsh"){
+  for(var i = 0; i < length; i++){    
+    if(pattern.length > 1 && pattern[i-1] == 1 && pattern[i-2] == 1){
+      pattern[i] = 0;
+    }else if(pattern[i-1] == 0){
+      pattern[i] = 1;
     }else{
       pattern[i] = Math.round(Math.random());
     }    
