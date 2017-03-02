@@ -2,17 +2,14 @@ $( document ).ready(go);
 
 function go(){
 
-  $(".fa").on("click", function(){
-    if($(".fa").hasClass("fa-caret-down")){
-      $('.about').slideDown();      
-      $('.fa').removeClass("fa-caret-down");
-      $('.fa').addClass("fa-caret-up"); 
+  $(".arrow").on("click", function(){
+    $('.about').slideToggle();
+    if($('.arrow').hasClass('reversed')){
+      $('.arrow').removeClass('reversed')
     }else{
-      $('.about').slideUp();
-      $('.fa').removeClass("fa-caret-up");      
-      $('.fa').addClass("fa-caret-down"); 
-    }         
-  })
+      $('.arrow').addClass("reversed"); 
+    }    
+  });
 
   
   $(".input-group-field").on("change", function(){

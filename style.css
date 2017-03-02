@@ -80,9 +80,19 @@ strong{
     color: #b3e6ff;
 }
 
-.fa:hover{
+.arrow{
+  fill: #ffc61a;
+}
+
+.arrow:hover{
     cursor: pointer;
 }
+
+.reversed{
+   transform-origin: center center;
+   transform: rotate(180deg);
+}
+
 
 /*
 yellow colors
