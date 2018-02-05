@@ -121,7 +121,13 @@ function generate(length, style, starts, ends, fav){
   }
 
   
-  var pattern = makePattern(length, style);
+  var pattern = [];
+  if($('#skeleton').val().length > 0){
+	  pattern = $('#skeleton').val().split('');
+  }else{
+	  pattern = makePattern(length, style);
+  }
+  
   var name = [];
 
 if(ends == "rnd"){

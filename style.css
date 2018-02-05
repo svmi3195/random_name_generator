@@ -13,6 +13,11 @@ svg{
     display: inline;
 }
 
+#skeleton{
+	max-width: 200px;
+	background-color: #b3e6ff;
+}
+
 .settings{
     background-color: #028E9B;
 }
